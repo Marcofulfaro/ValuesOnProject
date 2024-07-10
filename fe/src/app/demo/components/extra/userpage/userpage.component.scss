@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.name{ 
+    font-size: 20px;
+    margin-left: 50px;
+}
+.center{
+    margin: 50px;
+}
+.item{
+    margin-left: 10px;
+}
+.space{
+    justify-content: space-around;
+}
+.flex{
+    display: flex;
+    margin-bottom: 25px;
+    align-items: center;
+    
+}
+.title{
+    font-size: 23px;
+    letter-spacing: 2px;
+}

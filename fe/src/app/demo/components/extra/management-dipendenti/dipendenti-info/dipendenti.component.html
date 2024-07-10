@@ -1,0 +1,51 @@
+
+    <div>
+		<div class="card p-fluid">
+            <div style="display: flex; margin-bottom: 18.5px;" >
+                <h2 class="mt-0 font-semibold mb-2" style="flex: 1; font-size: 25px; letter-spacing: 2px;transform: translateY(15px);">LISTA DIPENDENTI</h2>
+                <div class="col-12" style="width: 300px;transform: translateX(12px);">
+                    <span class="p-input-icon-left p-input-icon-right">
+                        <i class="pi pi-user"></i>
+                        <input type="text" pInputText placeholder="Cerca Utente" [(ngModel)]="searchTerm" (keyup)="searchUser()"/>
+                        <i class="pi pi-search" (click)="searchUser()"></i>
+                    </span>
+                </div>
+            </div>
+                <div class="card">
+                    <p-table
+                    [value]="users"
+                    [paginator]="true"
+                    [rows]="5"
+                    [tableStyle]="{ 'min-width': '65rem' }"
+                    [rowsPerPageOptions]="[5, 10, 20]"
+                >
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th style="width: 70px;">ID</th>
+                            <th style="width: 170px;">Nome</th>
+                            <th style="width: 170px;">Cogome</th>
+                            <th style="width: 250px;">Email</th>
+                            <th style="width: 100px;">Documenti</th>
+                            <th style="width: 100px;">Aggiorna</th>
+                            <th style="width: 100px;">Cancella</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-user>
+                        <tr>
+                            <td>{{ user.idUser }}</td>
+                            <td><input type="text" [(ngModel)]="user.nome" nome="nome" pInputText></td>
+                            <td><input type="text" [(ngModel)]="user.cognome" nome="cognome" pInputText></td>
+                            <td><input type="email" [(ngModel)]="user.mail" nome="email" pInputText></td>
+                            <td><p-button icon="pi pi-folder-open" severity="secondary" routerLink="/extra/dipendenti-docs/{{user.idUser}}"/></td>
+                            <td><p-button icon="pi pi-check" severity="success" (click)="updateRecord(user)"/></td>
+                            <td><p-button icon="pi pi-times" severity="danger" (click)="deleteRecord(user)"/></td>
+                        </tr>
+                    </ng-template>
+                    </p-table>
+                    <p-toast/>
+                </div>
+		</div>
+    </div>
+
+
+
